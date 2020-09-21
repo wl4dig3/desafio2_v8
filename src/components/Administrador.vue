@@ -1,3 +1,12 @@
 <template>
-    <h1>Bienvenido a la página de Administración</h1>
+    <div>
+        <h1>Hola...</h1>
+    <router-view />
+    </div>
 </template>
+
+<style scoped>
+    div {
+        height: 40rem;
+    }
+</style>

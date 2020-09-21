@@ -12,17 +12,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "portada" */ '../views/Portada.vue')
   },
   {
-    path: '/*post*',
+    path: '/post/:entrada',
     name: 'Post',
-    component: () => import(/* webpackChunkName: "post" */ '../views/Post.vue')
-
-  },
-
-  {
-    path: '/sobremi/:entrada',
-    name: 'sobremi',
-    alias: ['/acerca', '/sobre', '/acercademi'],
-    component: () => import(/* webpackChunkName: "sobremi" */ '../views/Sobremi.vue'),
+    component: () => import(/* webpackChunkName: "post" */ '../views/Post.vue'),
     children: [
       {
         path: 'comentarios',
@@ -30,16 +22,25 @@ const routes = [
         name: 'comentarios',
         component: () => import(/* webpackChunkName: "comentarios" */ '../components/Comentarios.vue'),
       }
-    ],
+    ]
+
+  },
+
+  {
+    path: '/sobremi/',
+    name: 'sobremi',
+    alias: ['/acerca', '/sobre', '/acercademi'],
+    component: () => import(/* webpackChunkName: "sobremi" */ '../views/Sobremi.vue')
+    
   },
   {
     path: '/*contacto*',
-    name: 'contacto',
+    name: 'Contacto',
     alias: ['/contactame', '/acercademi', '/acerca'],
     component: () => import(/* webpackChunkName: "contacto" */ '../views/Contacto.vue')
   },
   {
-    path: '/*administrador*',
+    path: '/administrador',
     name: 'administrador',
     alias: ['/administrador', '/admin', '/admi'],
     component: () => import(/* webpackChunkName: "administrador" */ '../components/Administrador.vue'),
