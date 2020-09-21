@@ -12,7 +12,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "portada" */ '../views/Portada.vue')
   },
   {
-    path: '/post',
+    path: '/*post*',
     name: 'Post',
     component: () => import(/* webpackChunkName: "post" */ '../views/Post.vue')
 
@@ -33,10 +33,30 @@ const routes = [
     ],
   },
   {
-    path: '/contacto',
+    path: '/*contacto*',
     name: 'contacto',
     alias: ['/contactame', '/acercademi', '/acerca'],
     component: () => import(/* webpackChunkName: "contacto" */ '../views/Contacto.vue')
+  },
+  {
+    path: '/*administrador*',
+    name: 'administrador',
+    alias: ['/administrador', '/admin', '/admi'],
+    component: () => import(/* webpackChunkName: "administrador" */ '../components/Administrador.vue'),
+    children: [
+      {
+        path: 'simple',
+        component:'Simple',
+        name: 'simple',
+        component: () => import(/* webpackChunkName: "simple" */ '../components/Simple.vue'),
+      },
+      {
+        path: 'avanzado',
+        component:'Avanzado',
+        name: 'avanzado',
+        component: () => import(/* webpackChunkName: "avanzado" */ '../components/Avanzado.vue'),
+      }
+    ]
   },
   {
     path: '*',
